@@ -1,5 +1,4 @@
 /backend/venv/
 /frontend/node_modules/
-/backend/__pycache__
-/backend/backend/__pycache__
-*/.idea
+**/__pycache__
+**/.idea
