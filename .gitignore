@@ -1,4 +1,5 @@
 /backend/venv/
+/backend/backend/.env
 /frontend/node_modules/
 **/__pycache__
 **/.idea

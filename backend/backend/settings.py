@@ -12,7 +12,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import sys
 from pathlib import Path
+import environ
 
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'cw#@*avgb*c!e^#&sx!5i5fd9rb+hj72wr$hbd4gb)s4m66##%'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -100,12 +104,13 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'drawing_app',
-        'USER': 'postgres',
-        'PASSWORD': '1'
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD')
     }
 }
 
